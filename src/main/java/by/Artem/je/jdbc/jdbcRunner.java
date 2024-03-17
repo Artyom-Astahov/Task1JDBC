@@ -14,6 +14,7 @@ public class jdbcRunner {
 //        System.out.println(dbq.getTicketsPurchased());
 //        System.out.println(dbq.updateTicketName(2, "Egor Petrovich"));
         System.out.println(Arrays.toString(dbq.updateTableFlightAndTicket(2)));
+        dbq.close();
 
     }
 }
