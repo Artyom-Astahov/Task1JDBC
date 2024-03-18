@@ -1,4 +1,4 @@
-package by.Artem.je.util;
+package by.artem.je.util;
 
 
 import java.sql.Connection;
@@ -81,16 +81,21 @@ public final class DatabaseQueries {
         return resultSet;
     }
 
-    public int[] updateTableFlightAndTicket(int flight_id) throws SQLException {
+    public int[] updateTableFlightAndTicket(int flight_id)  {
         String sqlRequestTicket = """
                 update flight_repo.public.ticket set passenger_name = 'Ivan Ivanich' where flight_id = %s
                 """.formatted(flight_id);
         String sqlRequestFlight = """
                 update flight_repo.public.flight set status = 'CANCELLED' where id = %s
                 """.formatted(flight_id);
-        int reusltSetTicket = this.statement.executeUpdate(sqlRequestTicket);
-        int reusltSetFlight = this.statement.executeUpdate(sqlRequestFlight);
-        return new int[]{reusltSetTicket, reusltSetFlight};
+        try{
+            int resultSetTicket = this.statement.executeUpdate(sqlRequestTicket);
+            int resultSetFlight = this.statement.executeUpdate(sqlRequestFlight);
+            return new int[]{resultSetTicket, resultSetFlight};
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

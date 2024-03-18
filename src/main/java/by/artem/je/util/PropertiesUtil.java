@@ -1,4 +1,4 @@
-package by.Artem.je.util;
+package by.artem.je.util;
 
 import java.io.IOException;
 import java.util.Properties;

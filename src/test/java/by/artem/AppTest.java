@@ -1,4 +1,4 @@
-package by.Artem;
+package by.artem;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -1,6 +1,6 @@
-package by.Artem.je.jdbc;
+package by.artem.je.jdbc;
 
-import by.Artem.je.util.DatabaseQueries;
+import by.artem.je.util.DatabaseQueries;
 
 import java.sql.SQLException;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package by.Artem;
+package by.artem;
 
 /**
  * Hello world!

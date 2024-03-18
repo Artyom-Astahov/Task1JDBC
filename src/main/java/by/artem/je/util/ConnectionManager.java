@@ -1,4 +1,4 @@
-package by.Artem.je.util;
+package by.artem.je.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
