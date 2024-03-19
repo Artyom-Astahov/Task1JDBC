@@ -1,4 +1,4 @@
-package by.artem.je.util;
+package by.artem.je.jdbc.dao.util;
 
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ public final class DatabaseQueries {
     private final Statement statement;
 
     private DatabaseQueries() throws SQLException {
-        connectionManager = ConnectionManager.open();
+        connectionManager = ConnectionManager.get();
         statement = connectionManager.createStatement();
     }
 
@@ -30,13 +30,14 @@ public final class DatabaseQueries {
         return INSTANCE;
     }
 
-    public void close(){
+    public void close() {
         try {
             connectionManager.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
     public HashMap<String, Integer> getCommonNames() throws SQLException {
         String sqlRequest = """
                 select passenger_name, count(passenger_name) as count_name 
@@ -75,24 +76,24 @@ public final class DatabaseQueries {
 
     public int updateTicketName(int id, String name) throws SQLException {
         String sqlRequest = """
-                    update flight_repo.public.ticket set passenger_name = '%s' where id = %s
-                    """.formatted(name, id);
+                update flight_repo.public.ticket set passenger_name = '%s' where id = %s
+                """.formatted(name, id);
         int resultSet = this.statement.executeUpdate(sqlRequest);
         return resultSet;
     }
 
-    public int[] updateTableFlightAndTicket(int flight_id)  {
+    public int[] updateTableFlightAndTicket(int flight_id) {
         String sqlRequestTicket = """
                 update flight_repo.public.ticket set passenger_name = 'Ivan Ivanich' where flight_id = %s
                 """.formatted(flight_id);
         String sqlRequestFlight = """
                 update flight_repo.public.flight set status = 'CANCELLED' where id = %s
                 """.formatted(flight_id);
-        try{
+        try {
             int resultSetTicket = this.statement.executeUpdate(sqlRequestTicket);
             int resultSetFlight = this.statement.executeUpdate(sqlRequestFlight);
             return new int[]{resultSetTicket, resultSetFlight};
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;

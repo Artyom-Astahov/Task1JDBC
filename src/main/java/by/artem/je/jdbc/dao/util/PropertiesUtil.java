@@ -1,4 +1,4 @@
-package by.artem.je.util;
+package by.artem.je.jdbc.dao.util;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -23,6 +23,7 @@ public final class PropertiesUtil {
     public static String get(String key) {
         return PROPERTIES.getProperty(key);
     }
+
     private PropertiesUtil() {
     }
 }

@@ -1,18 +1,23 @@
 package by.artem.je.jdbc;
 
-import by.artem.je.util.DatabaseQueries;
+import by.artem.je.jdbc.dao.AircraftDao;
+import by.artem.je.jdbc.dao.AirportDao;
+import by.artem.je.jdbc.dao.classes.Aircraft;
+import by.artem.je.jdbc.dao.util.DatabaseQueries;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 
 public class jdbcRunner {
     public static void main(String[] args) throws SQLException {
-        DatabaseQueries dbq = DatabaseQueries.getInstance();
-        System.out.println(dbq.getCommonNames());
-        System.out.println(dbq.getTicketsPurchased());
-        System.out.println(dbq.updateTicketName(2, "Egor Petrovich"));
-        System.out.println(Arrays.toString(dbq.updateTableFlightAndTicket(2)));
-        dbq.close();
+        AircraftDao aircraftDao = AircraftDao.getInstance();
+        Aircraft aircraft = new Aircraft();
+        aircraft.setModel("Cirrus Vision Jet");
+        aircraft.setId(5);
+//        System.out.println(aircraftDao.create(aircraft));
+//        System.out.println(aircraftDao.update(aircraft));
+//        System.out.println(aircraftDao.delete(5));
+        System.out.println(aircraftDao.findById(2).get());
 
     }
 }
