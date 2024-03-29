@@ -16,9 +16,9 @@ public class Flight {
     private Long id;
     private String flightNo;
     private Date departureDate;
-    private byte[] departureAirportCode;
+    private String departureAirportCode;
     private Date arrivalDate;
-    private byte[] arrivalAirportCode;
+    private String arrivalAirportCode;
     private Integer aircraftId;
     private Enum<FlightStatus> status;
 

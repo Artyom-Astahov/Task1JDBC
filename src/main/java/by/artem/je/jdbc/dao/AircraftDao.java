@@ -1,7 +1,7 @@
 package by.artem.je.jdbc.dao;
 
 import by.artem.je.jdbc.dao.classes.Aircraft;
-import by.artem.je.jdbc.dao.util.ConnectionManager;
+import by.artem.je.jdbc.util.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

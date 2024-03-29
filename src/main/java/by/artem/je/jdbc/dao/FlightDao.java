@@ -1,9 +1,8 @@
 package by.artem.je.jdbc.dao;
 
-import by.artem.je.jdbc.dao.classes.Aircraft;
 import by.artem.je.jdbc.dao.classes.Flight;
 import by.artem.je.jdbc.dao.classes.FlightStatus;
-import by.artem.je.jdbc.dao.util.ConnectionManager;
+import by.artem.je.jdbc.util.ConnectionManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class FlightDao implements Dao<Long, Flight>{
             VALUES (?, ?, ?, ?, ?, ?, ?);
             """;
     private final String READ_ALL_SQL = """
-                        select id, model from flight_repo.public.flight
+                        select id, flight_no, departure_date, departure_airport_code, arrival_date, arrival_airport_code, aircraft_id, status from flight_repo.public.flight
             """;
     private final String READ_BY_ID_SQL = READ_ALL_SQL + """
                         where id = ?
@@ -47,7 +46,7 @@ public class FlightDao implements Dao<Long, Flight>{
                    delete from flight_repo.public.aircraft where id = ?          
             """;
 
-    public FlightDao getInstance(){
+    public static FlightDao getInstance(){
         return INSTANCE;
     }
 
@@ -58,7 +57,7 @@ public class FlightDao implements Dao<Long, Flight>{
             var statement = connection.prepareStatement(CREATE_SQL, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, flight.getFlightNo());
             statement.setDate(2, (Date) flight.getDepartureDate());
-            statement.setBytes(3, flight.getDepartureAirportCode());
+            statement.setString(3, flight.getDepartureAirportCode());
             statement.setDate(4, (Date) flight.getArrivalDate());
             statement.setInt(5,  flight.getAircraftId());
             statement.setString(6, flight.getStatus().toString());
@@ -78,7 +77,7 @@ public class FlightDao implements Dao<Long, Flight>{
             var statement = connectionManager.prepareStatement(UPDATE_SQL);
             statement.setString(1, flight.getFlightNo());
             statement.setDate(2, (Date) flight.getDepartureDate());
-            statement.setBytes(3, flight.getDepartureAirportCode());
+            statement.setString(3, flight.getDepartureAirportCode());
             statement.setDate(4, (Date) flight.getArrivalDate());
             statement.setInt(5,  flight.getAircraftId());
             statement.setString(6, flight.getStatus().toString());
@@ -94,9 +93,9 @@ public class FlightDao implements Dao<Long, Flight>{
                 result.getLong("id"),
                 result.getString("flight_no"),
                 result.getDate("departure_date"),
-                result.getBytes("departure_airport_code"),
+                result.getString("departure_airport_code"),
                 result.getDate("arrival_date"),
-                result.getBytes("arrival_airport_code"),
+                result.getString("arrival_airport_code"),
                 result.getInt("aircraft_id"),
                 FlightStatus.valueOf(result.getString("status"))
 

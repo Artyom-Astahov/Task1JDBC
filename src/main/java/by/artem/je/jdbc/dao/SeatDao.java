@@ -1,13 +1,11 @@
 package by.artem.je.jdbc.dao;
 
-import by.artem.je.jdbc.dao.classes.Aircraft;
 import by.artem.je.jdbc.dao.classes.Seat;
-import by.artem.je.jdbc.dao.util.ConnectionManager;
+import by.artem.je.jdbc.util.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +21,7 @@ public class SeatDao implements Dao<Integer, Seat>{
             VALUES (?, ?);
             """;
     private final String READ_ALL_SQL = """
-                        select id, model from flight_repo.public.seat
+                        select aircraft_id, seat_no from flight_repo.public.seat
             """;
     private final String READ_BY_ID_SQL = READ_ALL_SQL + """
                         where aircraft_id = ?
@@ -35,7 +33,7 @@ public class SeatDao implements Dao<Integer, Seat>{
                    delete from flight_repo.public.seat where aircraft_id = ?          
             """;
 
-    public SeatDao getInstance(){
+    public static SeatDao getInstance(){
         return INSTANCE;
     }
 

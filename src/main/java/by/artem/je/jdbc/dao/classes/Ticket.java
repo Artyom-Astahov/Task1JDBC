@@ -13,6 +13,6 @@ public class Ticket {
     private String passportNo;
     private String passengerName;
     private Long flightId;
-    private byte[] seatNo;
+    private String seatNo;
     private Float cost;
 }

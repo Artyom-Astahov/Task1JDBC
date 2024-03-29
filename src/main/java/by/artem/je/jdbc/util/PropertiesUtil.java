@@ -1,4 +1,4 @@
-package by.artem.je.jdbc.dao.util;
+package by.artem.je.jdbc.util;
 
 import java.io.IOException;
 import java.util.Properties;

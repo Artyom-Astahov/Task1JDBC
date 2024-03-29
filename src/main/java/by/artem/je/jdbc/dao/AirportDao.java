@@ -1,8 +1,7 @@
 package by.artem.je.jdbc.dao;
 
-import by.artem.je.jdbc.dao.classes.Aircraft;
 import by.artem.je.jdbc.dao.classes.Airport;
-import by.artem.je.jdbc.dao.util.ConnectionManager;
+import by.artem.je.jdbc.util.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -36,7 +35,7 @@ public class AirportDao implements Dao<byte[], Airport> {
                    delete from flight_repo.public.airport where code = ?
             """;
 
-    public AirportDao getInstance() {
+    public static AirportDao getInstance() {
         return INSTANCE;
     }
 
