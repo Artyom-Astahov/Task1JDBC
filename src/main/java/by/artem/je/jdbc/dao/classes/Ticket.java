@@ -2,13 +2,17 @@ package by.artem.je.jdbc.dao.classes;
 
 import lombok.*;
 
-@AllArgsConstructor
+import javax.persistence.*;
+
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "ticket")
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String passportNo;
     private String passengerName;

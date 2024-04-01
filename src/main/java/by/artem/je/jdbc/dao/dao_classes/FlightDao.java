@@ -1,4 +1,4 @@
-package by.artem.je.jdbc.dao;
+package by.artem.je.jdbc.dao.dao_classes;
 
 import by.artem.je.jdbc.dao.classes.Flight;
 import by.artem.je.jdbc.dao.classes.FlightStatus;

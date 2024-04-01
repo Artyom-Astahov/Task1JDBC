@@ -1,6 +1,6 @@
 package by.artem.je.jdbc.service;
 
-import by.artem.je.jdbc.dao.TicketDao;
+import by.artem.je.jdbc.dao.dao_classes.TicketDao;
 import by.artem.je.jdbc.dto.TicketDto;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package by.artem.je.jdbc.dao;
+package by.artem.je.jdbc.dao.dao_classes;
 
 import java.util.List;
 import java.util.Optional;

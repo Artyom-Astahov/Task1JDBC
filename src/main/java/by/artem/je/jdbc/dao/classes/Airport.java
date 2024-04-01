@@ -2,13 +2,18 @@ package by.artem.je.jdbc.dao.classes;
 
 import lombok.*;
 
-@AllArgsConstructor
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "airport")
 public class Airport {
+    @Id
     private byte[] code;
     private String country;
     private String city;

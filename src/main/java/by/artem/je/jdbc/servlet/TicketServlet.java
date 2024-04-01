@@ -1,7 +1,5 @@
 package by.artem.je.jdbc.servlet;
 
-import by.artem.je.jdbc.dao.TicketDao;
-import by.artem.je.jdbc.service.FlightService;
 import by.artem.je.jdbc.service.TicketService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -1,7 +1,7 @@
 package by.artem.je.jdbc.service;
 
 
-import by.artem.je.jdbc.dao.UserDao;
+import by.artem.je.jdbc.dao.dao_classes.UserDao;
 import by.artem.je.jdbc.dto.CreateUserDto;
 import by.artem.je.jdbc.dto.UserDto;
 import by.artem.je.jdbc.exception.ValidationException;

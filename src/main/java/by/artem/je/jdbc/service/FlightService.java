@@ -1,6 +1,6 @@
 package by.artem.je.jdbc.service;
 
-import by.artem.je.jdbc.dao.FlightDao;
+import by.artem.je.jdbc.dao.dao_classes.FlightDao;
 import by.artem.je.jdbc.dto.FlightDto;
 
 import java.util.List;
