@@ -23,6 +23,6 @@ public class Flight {
     private String arrivalAirportCode;
     private Integer aircraftId;
     @Enumerated(EnumType.STRING)
-    private Enum<FlightStatus> status;
+    private FlightStatus status;
 
 }

@@ -1,6 +1,5 @@
 package by.artem.je.jdbc.entity;
 
-import by.artem.je.jdbc.conventer.RoleEnumConventerAttribute;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

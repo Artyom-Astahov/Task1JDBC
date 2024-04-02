@@ -14,8 +14,10 @@
         <input type="password" name="password" id="password" required>
     </label><br>
     <input type="submit" value="Login">
+
+
     <a href="${pageContext.request.contextPath}/registration">
-        <input type="submit" value="Зарегистрироваться">
+        <input type="submit" value="Зарегистрироваться" >
     </a>
     <c:if test="${param.error != null}">
         <div style="color: red">

@@ -51,7 +51,7 @@ public class TicketEntityPersister extends EntityPersister<Ticket> {
                     where t.flight_id = %s
                                         
                     """.formatted(id);
-            List<Ticket> list = session.createSQLQuery(sqlQueryByFlightId).list();
+            List<Ticket> list = session.createSQLQuery(sqlQueryByFlightId).addEntity(Ticket.class).list();
             session.getTransaction().commit();
             return list;
 
