@@ -2,8 +2,10 @@ package by.artem.je.jdbc.service;
 
 
 import by.artem.je.jdbc.dao.dao_classes.UserDao;
+import by.artem.je.jdbc.dao.hibernate.persister.UserEntityPersister;
 import by.artem.je.jdbc.dto.CreateUserDto;
 import by.artem.je.jdbc.dto.UserDto;
+import by.artem.je.jdbc.entity.User;
 import by.artem.je.jdbc.exception.ValidationException;
 import by.artem.je.jdbc.mapper.CreateUserMapper;
 import by.artem.je.jdbc.mapper.UserMapper;
@@ -18,7 +20,7 @@ import static lombok.AccessLevel.*;
 public class UserService {
     private static final UserService INSTANCE = new UserService();
     private final CreateUserMapper createUserMapper = CreateUserMapper.getINSTANCE();
-    private final UserDao userDao = UserDao.getINSTANCE();
+    private final UserEntityPersister userEntityPersister = UserEntityPersister.getINSTANCE();
     private final CreateUserValidator createUserValidator = CreateUserValidator.getINSTANCE();
 
     private final UserMapper userMapper = UserMapper.getINSTANCE();
@@ -27,7 +29,7 @@ public class UserService {
     }
 
     public Optional<UserDto> login(String email, String password) {
-        return userDao.findEmailAndPassword(email, password).map(userMapper::mapFrom);
+        return userEntityPersister.getEmailAndPassword(email, password).map(userMapper::mapFrom);
 
     }
 
@@ -37,8 +39,9 @@ public class UserService {
         if(!validationResult.isValid()){
             throw new ValidationException(validationResult.getErrors());
         }
-        var user = createUserMapper.mapFrom(createUserDto);
-        userDao.create(user);
+        User user = createUserMapper.mapFrom(createUserDto);
+        System.out.println(user);
+        userEntityPersister.save(user);
         return user.getId();
     }
 }

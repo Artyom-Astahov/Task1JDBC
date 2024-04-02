@@ -1,7 +1,7 @@
 package by.artem.je.jdbc.validator;
 
 import by.artem.je.jdbc.dto.CreateUserDto;
-import by.artem.je.jdbc.entity.Role;
+import by.artem.je.jdbc.entity.RoleEnum;
 import by.artem.je.jdbc.util.LocalDateFormater;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ public class CreateUserValidator implements Validator<CreateUserDto> {
         if(!LocalDateFormater.isValid(createUserDto.getBirthday())){
             validationResult.add(Error.of("invalid.birthday", "Birthday is invalid"));
         }
-        if(Role.find(createUserDto.getRole()).isEmpty()){
+        if(RoleEnum.find(createUserDto.getRole()).isEmpty()){
             validationResult.add(Error.of("invalid.role", "Role is invalid"));
         }
         if(createUserDto.getEmail().isEmpty()){

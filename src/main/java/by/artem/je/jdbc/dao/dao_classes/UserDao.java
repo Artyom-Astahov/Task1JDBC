@@ -1,6 +1,6 @@
 package by.artem.je.jdbc.dao.dao_classes;
 
-import by.artem.je.jdbc.entity.Role;
+import by.artem.je.jdbc.entity.RoleEnum;
 import by.artem.je.jdbc.entity.User;
 import by.artem.je.jdbc.util.ConnectionManager;
 import lombok.Getter;
@@ -61,7 +61,7 @@ public class UserDao implements Dao<Long, User> {
                 resultSet.getDate("birthday").toLocalDate(),
                 resultSet.getString("email"),
                 resultSet.getString("password"),
-               Role.valueOf(resultSet.getString("role"))
+               RoleEnum.valueOf(resultSet.getString("role"))
         );
     }
     @Override

@@ -1,6 +1,7 @@
 package by.artem.je.jdbc.service;
 
 import by.artem.je.jdbc.dao.dao_classes.TicketDao;
+import by.artem.je.jdbc.dao.hibernate.persister.TicketEntityPersister;
 import by.artem.je.jdbc.dto.TicketDto;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class TicketService {
     private static final TicketService INSTANCE = new TicketService();
-    private final TicketDao ticketDao = TicketDao.getInstance();
+    private final TicketEntityPersister ticketEntityPersister = TicketEntityPersister.getINSTANCE();
 
     private TicketService() {
     }
@@ -18,7 +19,7 @@ public class TicketService {
     }
 
     public List<TicketDto> findAllByFlightId(Long id) {
-        return ticketDao.findAllByFlightId(id).stream().map(ticket -> new TicketDto(
+        return ticketEntityPersister.getAllByFlightId(id).stream().map(ticket -> new TicketDto(
                 ticket.getId(),
                 ticket.getFlightId(),
                 ticket.getSeatNo())

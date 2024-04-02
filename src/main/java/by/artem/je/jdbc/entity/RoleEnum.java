@@ -3,10 +3,12 @@ package by.artem.je.jdbc.entity;
 import java.util.Arrays;
 import java.util.Optional;
 
-public enum Role {
+public enum RoleEnum {
     ADMIN, USER;
 
-    public static Optional<Role> find(String role) {
+
+
+    public static Optional<RoleEnum> find(String role) {
         return Arrays.stream(values())
                 .filter(it -> it.name().equals(role))
                 .findFirst();

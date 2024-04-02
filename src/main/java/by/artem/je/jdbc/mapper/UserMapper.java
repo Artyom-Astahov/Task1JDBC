@@ -1,9 +1,7 @@
 package by.artem.je.jdbc.mapper;
 
 import by.artem.je.jdbc.dto.UserDto;
-import by.artem.je.jdbc.entity.Role;
 import by.artem.je.jdbc.entity.User;
-import by.artem.je.jdbc.util.LocalDateFormater;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

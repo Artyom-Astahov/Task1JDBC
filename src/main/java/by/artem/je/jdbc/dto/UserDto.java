@@ -1,8 +1,7 @@
 package by.artem.je.jdbc.dto;
 
-import by.artem.je.jdbc.entity.Role;
+import by.artem.je.jdbc.entity.RoleEnum;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Value;
 
 import java.time.LocalDate;
@@ -15,6 +14,6 @@ public class UserDto {
     LocalDate birthday;
     String password;
     String email;
-    Role role;
+    RoleEnum role;
 
 }

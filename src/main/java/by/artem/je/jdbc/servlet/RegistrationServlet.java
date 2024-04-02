@@ -1,6 +1,6 @@
 package by.artem.je.jdbc.servlet;
 
-import by.artem.je.jdbc.entity.Role;
+import by.artem.je.jdbc.entity.RoleEnum;
 import by.artem.je.jdbc.exception.ValidationException;
 import by.artem.je.jdbc.service.UserService;
 import by.artem.je.jdbc.util.JspHelper;
@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -20,7 +19,7 @@ public class RegistrationServlet extends HttpServlet {
     private final UserService userService = UserService.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("roles", Role.values());
+        req.setAttribute("roles", RoleEnum.values());
         req.getRequestDispatcher(JspHelper.getPath("registration")).forward(req, resp);
     }
 

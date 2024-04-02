@@ -3,13 +3,20 @@ package by.artem.je.jdbc.dao.hibernate.persister;
 import by.artem.je.jdbc.dao.classes.Aircraft;
 import by.artem.je.jdbc.dao.classes.Airport;
 import by.artem.je.jdbc.dao.hibernate.util.HibernateUtil;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.Serializable;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AirportEntityPersister extends EntityPersister<Airport>{
+
+    @Getter
+    private static final AirportEntityPersister INSTANCE = new AirportEntityPersister();
 
 
     @Override

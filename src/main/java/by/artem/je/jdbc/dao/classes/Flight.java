@@ -3,8 +3,7 @@ package by.artem.je.jdbc.dao.classes;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.Date;
 
 @Data
@@ -15,7 +14,7 @@ import java.util.Date;
 @Table(name = "flight")
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String flightNo;
     private Date departureDate;
@@ -23,6 +22,7 @@ public class Flight {
     private Date arrivalDate;
     private String arrivalAirportCode;
     private Integer aircraftId;
+    @Enumerated(EnumType.STRING)
     private Enum<FlightStatus> status;
 
 }

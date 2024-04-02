@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "ticket")
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String passportNo;
     private String passengerName;

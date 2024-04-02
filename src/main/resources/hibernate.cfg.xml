@@ -16,6 +16,9 @@
     <mapping class="by.artem.je.jdbc.dao.classes.Flight"/>
     <mapping class="by.artem.je.jdbc.dao.classes.Seat"/>
     <mapping class="by.artem.je.jdbc.dao.classes.Ticket"/>
+    <mapping class="by.artem.je.jdbc.entity.User"/>
+
+
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>
